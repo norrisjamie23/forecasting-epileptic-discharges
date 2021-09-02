@@ -1,7 +1,6 @@
 from scipy.signal import butter, filtfilt
 import math
 import numpy as np
-
 ###########################################################################
 # CodeID:           SPKDT v1.0.4
 # Author:           Danielle T. Barkmeier
@@ -212,4 +211,4 @@ def DetectSpikes(Data, Fs, BlockSize=1, SCALE=70, STDCoeff=4, DetThresholds=[7, 
             
             SpikeFV.append(ChanPeaks)
                              
-    return np.concatenate(SpikeIndex, axis=0), np.array(ChanId), np.concatenate(SpikeFV, axis=0)
+    return np.concatenate(SpikeIndex, axis=0).astype(np.int32), np.array(ChanId).astype(np.int32), np.concatenate(SpikeFV, axis=0)
